@@ -10,6 +10,7 @@
     },
     walkthrough: {
       src: base + 'skynet-full-walkthrough-v5.mp4',
+      desktopSrc: 'https://media.skynet-bot.de/skynet-full-walkthrough-4k.mp4',
       poster: base + 'skynet-full-walkthrough-v4-poster.webp',
       label: 'Full product walkthrough, 8 minutes 31 seconds',
       caption: 'Explore research, strategy configuration, execution and monitoring.',
@@ -22,15 +23,17 @@
   buttons.forEach(button => button.addEventListener('click', () => {
     if (button.getAttribute('aria-pressed') === 'true') return;
     const selected = videos[button.dataset.video];
+    const playbackSrc = selected.desktopSrc && window.matchMedia('(min-width: 900px)').matches
+      ? selected.desktopSrc : selected.src;
     video.pause();
     error.hidden = true;
-    video.src = selected.src;
+    video.src = playbackSrc;
     video.poster = selected.poster;
     video.setAttribute('aria-label', selected.label);
     video.load();
     buttons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
     document.getElementById('video-caption').textContent = selected.caption;
-    document.getElementById('video-direct').href = selected.src;
+    document.getElementById('video-direct').href = selected.desktopSrc || selected.src;
     document.getElementById('video-summary-text').textContent = selected.summary;
   }));
   video.addEventListener('error', () => { error.hidden = false; });

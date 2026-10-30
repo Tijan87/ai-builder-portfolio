@@ -13,7 +13,7 @@ No build tools or dependencies are required. Serve this directory with a static 
 
 ## Media and evidence
 
-The overview, full walkthrough and poster images remain hosted on the original public case-study site. They are referenced by absolute URL to avoid duplicating large video files. The videos retain their original recorded content and branding; the page uses the neutral product description.
+The videos and poster images use the same source assets as the original case-study site. The overview uses its original 4K file. The full walkthrough uses the original 4K media-hosted file at viewport widths of 900px and above, and the original 1080p GitHub-hosted version on smaller screens. Its direct link always opens the 4K version. No videos are re-encoded. The videos retain their original recorded content and branding; the page uses the neutral product description.
 
 The optional evidence section links to the original detailed case studies. Their measurements retain their original dates and definitions.
 
